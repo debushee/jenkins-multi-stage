@@ -1,11 +1,7 @@
 pipeline {
     agent any
     stages {
-        stage('Clean Workspace') {
-            steps {
-                cleanWs()
-            }
-        }
+        
         stage('Dependencies') {
             steps {
                 sh 'python3 -m venv venv'
@@ -25,6 +21,11 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Hi'
+            }
+        }
+        stage('Clean Workspace') {
+            steps {
+                cleanWs()
             }
         }
     }
