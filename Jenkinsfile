@@ -1,6 +1,12 @@
 pipeline {
     agent any
     stages {
+        stage('Clean Workspace') {
+            steps {
+                sh 'pkill gunicorn'
+                cleanWs()
+            }
+        }
         stage('Repo') {
             steps {
                 git 'https://github.com/Crush-Steelpunch/hangman'
@@ -14,7 +20,7 @@ pipeline {
                 pip3 install -r requirements.txt''' 
             }
         }
-        stage('Build') {
+        stage('Deploy') {
             steps {
                 sh '''#!/bin/bash
                 source venv/bin/activate
@@ -26,11 +32,6 @@ pipeline {
                 sh 'curl localhost:8001'
             }
         }
-        stage('Clean Workspace') {
-            steps {
-                sh 'pkill gunicorn'
-                cleanWs()
-            }
-        }
+
     }
 }
