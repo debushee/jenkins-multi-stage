@@ -5,7 +5,7 @@ pipeline {
         stage('Dependencies') {
             steps {
                 sh 'python3 -m venv venv'
-                sh 'source venv/bin/activate'
+                sh 'source ./venv/bin/activate'
             }
         }
         stage('Build') {
