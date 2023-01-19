@@ -1,7 +1,11 @@
 pipeline {
     agent any
     stages {
-        
+        stage('Dependencies') {
+            steps {
+                git 'https://github.com/Crush-Steelpunch/hangman'
+            }
+        }
         stage('Dependencies') {
             steps {
                 sh '''#!/bin/bash
