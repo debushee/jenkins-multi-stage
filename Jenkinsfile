@@ -23,7 +23,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                echo 'Hi'
+                sh 'curl localhost:8001'
             }
         }
         stage('Deploy') {
