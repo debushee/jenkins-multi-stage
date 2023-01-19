@@ -18,7 +18,6 @@ pipeline {
             steps {
                 sh '''
                 #!/bin/bash
-                source venv/bin/activate
                 gunicorn --bind=0.0.0.0:8001 hangman:app -D'''
             }
         }
