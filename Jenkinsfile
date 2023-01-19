@@ -26,11 +26,6 @@ pipeline {
                 sh 'curl localhost:8001'
             }
         }
-        stage('Deploy') {
-            steps {
-                echo 'Hi'
-            }
-        }
         stage('Clean Workspace') {
             steps {
                 sh 'pkill gunicorn'
