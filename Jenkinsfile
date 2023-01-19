@@ -16,7 +16,10 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh 'gunicorn --bind=0.0.0.0:8001 hangman:app -D'
+                sh '''
+                #!/bin/bash
+                source venv/bin/activate
+                gunicorn --bind=0.0.0.0:8001 hangman:app -D'''
             }
         }
         stage('Test') {
