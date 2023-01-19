@@ -33,6 +33,7 @@ pipeline {
         }
         stage('Clean Workspace') {
             steps {
+                sh 'pkill gunicorn'
                 cleanWs()
             }
         }
