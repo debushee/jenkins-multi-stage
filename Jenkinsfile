@@ -32,6 +32,10 @@ pipeline {
                 sh 'curl localhost:8001'
             }
         }
-
+        stage('Clean up') {
+            steps {
+                sh 'pkill gunicorn'
+            }
+        }
     }
 }
