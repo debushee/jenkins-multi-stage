@@ -18,6 +18,7 @@ pipeline {
             steps {
                 sh '''#!/bin/bash
                 source venv/bin/activate
+                sleep time: 1, unit: 'MINUTES'
                 BUILD_ID=nokill gunicorn --bind=0.0.0.0:8001 hangman:app -D'''
             }
         }
